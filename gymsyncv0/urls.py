@@ -26,6 +26,8 @@ urlpatterns = [
     path('classes/', include('classesapp.urls')),
     path('contact/', include('contactapp.urls')),
     path('shop/', include('shopapp.urls')),
+    path('kart/', include('kartapp.urls')),
+    path('auth/', include('authenticator.urls')),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -1,0 +1,50 @@
+<table class="table table-bordered" style="color: white;">
+    <thead>
+        <tr>
+            <th colspan="3" class="text-center">
+                Cart
+            </th>
+        </tr>
+        <tr>
+            <th>Product</th>
+            <th>Amount</th>
+            <th>Total</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% if request.session.kart.items %}
+            {% for key, value in request.session.kart.items %}
+                <tr class="text-center">
+                    <td>
+                        {{ value.nombre }}
+                    </td>
+                    <td>
+                        {{ value.cantidad }}
+                    </td>
+                    <td>
+                        <a href="{% url 'kart:add_prod' value.producto_id %}" class="btn btn-sm btn-success">+</a>
+                        <a href="{% url 'kart:remove_prod' value.producto_id %}" class="btn btn-sm btn-danger">-</a>
+                        $ {{ value.precio }}
+                    </td>
+                </tr>
+            {% endfor %}
+
+        {% else %}
+            <tr>
+                <td colspan="3">
+                    <div class="alert alert-danger text-center">
+                        Empty Cart
+                    </div>
+                </td>
+            </tr>
+        {% endif %}
+    </tbody>
+
+    <tfoot>
+        <tr>
+            <td colspan="3">
+                Total: {{ total_price }}
+            </td>
+        </tr>
+    </tfoot>
+</table>
