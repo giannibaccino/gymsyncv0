@@ -23,6 +23,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('gymsyncapp.urls')),
     path('workouts/', include('workoutsapp.urls')),
+    path('classes/', include('classesapp.urls')),
+    path('contact/', include('contactapp.urls')),
+    path('shop/', include('shopapp.urls')),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

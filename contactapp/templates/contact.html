@@ -1,0 +1,32 @@
+{% extends 'gymsyncapp/base.html' %} {% load static %} {% block content %}
+
+<h1 class="site-heading text-center text-white d-none d-lg-block">
+  <span class="site-heading-lower">CONTACTO</span>
+</h1>
+
+<div class="contenedorForm">
+
+  {% if 'valido' in request.GET %}
+  <div style="text-align: center;">
+    <p style="color: white;">Informacion enviada!</p>
+  </div>
+  {% elif 'novalido' in request.GET %}
+  <div style="text-align: center;">
+    <p style="color: white;">Error al enviar la informacion!</p>
+  </div>
+  {% endif %}
+
+
+  <form action="" method="POST" style="text-align: center;">{% csrf_token %}
+    <table style="color: white;margin: 20px auto;">
+      {{ form.as_table }}
+      </table>
+      <input type="submit" value="Enviar" style="width: 50%;">
+  </form>
+</div>
+
+<div>
+  <p style="color: white;">{{ request.POST }}</p>
+</div>
+
+{% endblock %}

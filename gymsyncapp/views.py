@@ -7,11 +7,11 @@ def home(request):
     return render(request, 'gymsyncapp/home.html')
 
 
-def classes(request):
-
-    return render(request, 'gymsyncapp/classes.html')
-
-
 def stats(request):
 
     return render(request, 'gymsyncapp/stats.html')
+
+
+def shop(request):
+
+    return render(request, 'gymsyncapp/shop.html')

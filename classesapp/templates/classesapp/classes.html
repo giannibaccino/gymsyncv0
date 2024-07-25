@@ -1,0 +1,51 @@
+{% extends 'gymsyncapp/base.html' %} {% load static %} {% block content %}
+
+<h1 class="site-heading text-center text-white d-none d-lg-block">
+  <span class="site-heading-lower">CLASSES</span>
+</h1>
+
+{% for clase in clases %}
+
+<section class="page-section clearfix">
+  <div class="container">
+    <div class="intro">
+
+      {% if clase.image %}
+
+      <img
+        class="intro-img img-fluid mb-3 mb-lg-0 rounded"
+        src="{{ clase.image.url }}"
+        alt=""
+        style="max-width: 50%"
+      />
+
+      {% endif %}
+
+      <div class="intro-text left-0 text-center bg-faded p-5 rounded">
+        <h2 class="section-heading mb-4">
+          <span class="section-heading-lower">{{ clase.titulo }}</span>
+          <span class="section-heading-upper">{{ clase.categoria }}</span>
+        </h2>
+        <p class="mb-3">{{ clase.contenido }}</p>
+        <div style="text-align: right; font-size: 0.8em">
+          By: {{ clase.autor }}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endfor %}
+
+<section>
+  <div style="width: 75%; text-align: center; margin: auto; color: white">
+    Categorias : 
+    {% for categoria in categorias %} 
+    
+    <a href="{% url 'categoria' categoria.id %}" class="linksCategorias">{{ categoria.nombre }}</a>&nbsp;&nbsp;
+
+    {% endfor %}
+  </div>
+</section>
+
+{% endblock %}

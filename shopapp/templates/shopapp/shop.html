@@ -1,0 +1,40 @@
+{% extends 'gymsyncapp/base.html' %} {% load static %} {% block content %}
+
+<h1 class="site-heading text-center text-white d-none d-lg-block">
+  <span class="site-heading-lower">SHOP</span>
+</h1>
+
+<div class="container">
+    <div class="row" style="max-height: min-content;">
+        {% for producto in productos %}
+
+        <div class="col-md-3">
+            <div class="card" style="margin: 10px 0px;">
+                <img class="card-img-top" src="{{ producto.imagen.url }}" style="height: 300px;">
+                <div class="card-body" style="text-align: center;">
+                    <h5 class="card-title">{{ producto.nombre }}</h5>
+                    <h7>{{ producto.categoria }}</h7>
+                    <p>$ {{ producto.precio }}</p>
+                </div>
+                <div class="card-footer" style="text-align: center;">
+                    <p>Stock: {{ producto.stock }}</p>
+                </div>
+            </div> 
+        </div>  
+
+        {% endfor %}
+    </div>
+</div>
+
+<section>
+  <div style="width: 75%; text-align: center; margin: auto; color: white">
+    Categorias : 
+    {% for categoria in categorias %} 
+    
+    <a href="{% url 'categoria' categoria.id %}" class="linksCategorias">{{ categoria.nombre }}</a>&nbsp;&nbsp;
+
+    {% endfor %}
+  </div>
+</section>
+
+{% endblock %}

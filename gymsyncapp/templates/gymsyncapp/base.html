@@ -49,39 +49,67 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav mx-auto">
-            <li class="nav-item px-lg-4 {% if request.path == '/' %}active{% endif %}">
-              <a class="nav-link text-uppercase text-expanded" href="{% url 'home' %}"
+            <li
+              class="nav-item px-lg-4 {% if request.path == '/' %}active{% endif %}"
+            >
+              <a
+                class="nav-link text-uppercase text-expanded"
+                href="{% url 'home' %}"
                 >Home</a
               >
             </li>
-            <li class="nav-item px-lg-4 {% if request.path == '/workouts/' %}active{% endif %}">
+            <li
+              class="nav-item px-lg-4 {% if request.path == '/workouts/' %}active{% endif %}"
+            >
               <a
                 class="nav-link text-uppercase text-expanded"
                 href="{% url 'workouts' %}"
                 >Workouts</a
               >
             </li>
-            <li class="nav-item px-lg-4 {% if request.path == '/classes/' %}active{% endif %}">
+            <li
+              class="nav-item px-lg-4 {% if request.path|slice:':9' == '/classes/' %}active{% endif %}"
+            >
               <a
                 class="nav-link text-uppercase text-expanded"
                 href="{% url 'classes' %}"
                 >Classes</a
               >
             </li>
-            <li class="nav-item px-lg-4 {% if request.path == '/stats/' %}active{% endif %}">
-              <a class="nav-link text-uppercase text-expanded" href="{% url 'stats' %}"
+            <li
+              class="nav-item px-lg-4 {% if request.path == '/stats/' %}active{% endif %}"
+            >
+              <a
+                class="nav-link text-uppercase text-expanded"
+                href="{% url 'stats' %}"
                 >Stats</a
               >
             </li>
+            <li
+              class="nav-item px-lg-4 {% if request.path == '/shop/' %}active{% endif %}"
+            >
+              <a
+                class="nav-link text-uppercase text-expanded"
+                href="{% url 'shop' %}"
+                >Shop</a
+              >
+            </li>
+            <li
+            class="nav-item px-lg-4 {% if request.path == '/contact/' %}active{% endif %}"
+          >
+            <a
+              class="nav-link text-uppercase text-expanded"
+              href="{% url 'contact' %}"
+              >Contacto</a
+            >
+          </li>
           </ul>
         </div>
       </div>
     </nav>
 
     <!-- Contendio cambiante -->
-    {% block content %}
-
-    {% endblock%}
+    {% block content %} {% endblock%}
 
     <!-- Footer -->
     <footer class="footer text-faded text-center py-5">
